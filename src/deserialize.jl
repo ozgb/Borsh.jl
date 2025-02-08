@@ -45,7 +45,8 @@ end
 "Deserialize Strings"
 deserialize!(io::IOBuffer, ::Type{String}) = begin
     nb = read(io, UInt32)
-    read(io, nb = nb, String)
+    bytes = read(io, nb)
+    String(bytes)
 end
 
 "Deserialize Option types"

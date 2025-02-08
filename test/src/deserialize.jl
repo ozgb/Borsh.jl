@@ -22,6 +22,17 @@ end
 
     t = T(1, 2)
     @test Borsh.deserialize(Borsh.serialize(t), T) == t
+
+    struct MyStruct
+        a::Int32
+        b::String
+        c::UInt8
+    end
+    Borsh.serialize!(io::IOBuffer, x::MyStruct) = Borsh.serialize_struct!(io, x)
+    Borsh.deserialize!(io::IOBuffer, t::Type{MyStruct}) = Borsh.deserialize_struct!(io, t)
+
+    t = MyStruct(33, "hello", 5)
+    @test Borsh.deserialize(Borsh.serialize(t), MyStruct) == t
 end
 
 @testset "Deserialize - Enum" begin

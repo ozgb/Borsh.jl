@@ -9,4 +9,3 @@ format:
     #!/usr/bin/env -S julia --project=.
     using JuliaFormatter
     result = format(".", verbose=true, overwrite=true)
-    exit(Int(!result))

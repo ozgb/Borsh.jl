@@ -28,6 +28,10 @@ res = Borsh.serialize(MyStruct(42, "hello"))
 # Result: 
 # 13-element Vector{UInt8}:
 #  [0x2a, 0x00, 0x00, 0x00, 0x05, 0x00, 0x00, 0x00, 0x68, 0x65, 0x6c, 0x6c, 0x6f]
+
+Borsh.deserialize!(io::IOBuffer, s::MyStruct) = Borsh.deserialize_struct!(io, s)
+j = Borsh.deserialize(res, MyStruct)
+
 ```
 
 Option types:
@@ -38,4 +42,9 @@ i = Some(Some(UInt8(4)))
 res = Borsh.serialize(i)
 
 # Result: [0x1, 0x1, 0x4]
+
+j = Borsh.deserialize(res, typeof(i))
+
+# Result: Some(Some(0x04))
+
 ```
