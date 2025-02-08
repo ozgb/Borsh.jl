@@ -1,0 +1,4 @@
+name = "Borsh"
+uuid = "e0ca245e-e2d4-4924-a0cc-c0f16c675cd2"
+authors = ["Oscar Bailey <79094698+ozgb@users.noreply.github.com>"]
+version = "0.1.0"
