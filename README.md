@@ -29,9 +29,10 @@ res = Borsh.serialize(MyStruct(42, "hello"))
 # 13-element Vector{UInt8}:
 #  [0x2a, 0x00, 0x00, 0x00, 0x05, 0x00, 0x00, 0x00, 0x68, 0x65, 0x6c, 0x6c, 0x6f]
 
-Borsh.deserialize!(io::IOBuffer, s::MyStruct) = Borsh.deserialize_struct!(io, s)
+Borsh.deserialize!(io::IOBuffer, t::Type{MyStruct}) = Borsh.deserialize_struct!(io, t)
 j = Borsh.deserialize(res, MyStruct)
 
+# Result: MyStruct(42, "hello")
 ```
 
 Option types:
