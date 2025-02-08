@@ -7,6 +7,10 @@
 - Supports all Borsh types: Primitive, Struct, Enum, FixedArray (Tuple), VariableArray (Vector), Options
 - Adds an `Option` type to represent the `Option` type in Borsh
 
+TODO:
+- Map
+- Set
+
 ## Usage
 
 ```julia
