@@ -1,6 +1,6 @@
 # Borsh.jl
 
-Borsh serialization and deserialization for Julia.
+[Borsh](https://borsh.io/) serialization and deserialization for Julia.
 
 ## Features
 
